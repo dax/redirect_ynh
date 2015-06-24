@@ -35,7 +35,7 @@ sudo yunohost app checkurl $domain$path -a $app \
 		then
 			sed -i "s@REDIRECT_PATH@@g" ../conf/nginx.conf
 		else
-			sed -i "s@REDIRECT_PATH@:$redirect_path@g" ../conf/nginx.conf
+			sed -i "s@REDIRECT_PATH@$redirect_path@g" ../conf/nginx.conf
 		fi
 
 	# Copy nginx conf file
