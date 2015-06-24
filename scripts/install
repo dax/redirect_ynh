@@ -39,7 +39,7 @@ sudo yunohost app checkurl $domain$path -a $app \
 		fi
 
 	# Copy nginx conf file
-		sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$redirect_domain.d/$app.conf
+		sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
 
 	# Escape uris
 		sudo yunohost app setting $app is_public -v "$is_public"
