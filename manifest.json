@@ -1,0 +1,61 @@
+{
+    "name": "Redirect",
+    "id": "redirect",
+    "description": {
+        "en": "Create a redirection to another port and/or path",
+        "fr": "Crée une redirection vers un autre port et/ou chemin"
+    },
+    "developer": {
+        "name": "scith"
+    },
+    "multi_instance": "true",
+    "arguments": {
+        "install" : [
+            {
+                "name": "domain",
+                "type": "domain",
+                "ask": {
+                    "en": "Choose a domain for the redirection",
+                    "fr": "Choisissez un domaine pour la redirection"
+                },
+                "example": "domain.org"
+            },
+            {
+                "name": "path",
+                "type": "path",
+                "ask": {
+                    "en": "Choose a path for the redirection",
+                    "fr": "Choisissez un chemin pour la redirection"
+                },
+                "example": "/path"
+            },
+			{
+                "name": "is_public",
+                "ask": {
+                    "en": "Is it a public redirection ?",
+                    "fr": "Est-ce une redirection publique ?"
+                },
+                "choices": ["Yes", "No"],
+                "default": "No"
+            },
+			{
+                "name": "redirect_port",
+                "ask": {
+                    "en": "(Optional) Choose the port that will be redirected",
+                    "fr": "(Optionnel) Choisissez le port qui sera redirigé"
+                },
+                "example": "5050",
+				"default": "none"
+            },
+			{
+                "name": "redirect_path",
+                "ask": {
+                    "en": "(Optional) Choose the path that will be redirected",
+                    "fr": "(Optionnel) Choisissez le chemin qui sera redirigé"
+                },
+                "example": "/path",
+				"default": "none"
+            }
+        ]
+    }
+}
