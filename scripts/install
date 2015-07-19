@@ -6,8 +6,7 @@ set -e
 domain=$1
 path=$2
 is_public=$3
-redirect_port=$4
-redirect_path=$5
+redirect_path=$4
 
 # Check domain/path availability
 sudo yunohost app checkurl $domain$path -a $app \
@@ -30,13 +29,12 @@ sudo yunohost app checkurl $domain$path -a $app \
 
 	# Redirect Path
 		redirect_path=${redirect_path%/}
-		sudo yunohost app setting $app redirect_path -v "$redirect_path"
-		if [ "$redirect_path" = "none" ];
-		then
-			sed -i "s@REDIRECT_PATH@@g" ../conf/nginx.conf
-		else
-			sed -i "s@REDIRECT_PATH@$redirect_path@g" ../conf/nginx.conf
+		if [ "${redirect_path:LEN}" != "/" ]; then
+		  echo "Adding trailing slash"
+		  redirect_path=${redirect_path%/}
 		fi
+		sudo yunohost app setting $app redirect_path -v "$redirect_path"
+		sed -i "s@REDIRECT_PATH@$redirect_path@g" ../conf/nginx.conf
 
 	# Copy nginx conf file
 		sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf

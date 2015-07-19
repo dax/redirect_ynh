@@ -2,8 +2,8 @@
     "name": "Redirect",
     "id": "redirect",
     "description": {
-        "en": "Create a redirection to another port and/or path",
-        "fr": "Crée une redirection vers un autre port et/ou chemin"
+        "en": "Create a redirection to another path",
+        "fr": "Crée une redirection vers un autre chemin"
     },
     "developer": {
         "name": "scith"
@@ -39,22 +39,13 @@
                 "default": "No"
             },
 			{
-                "name": "redirect_port",
-                "ask": {
-                    "en": "(Optional) Choose the port that will be redirected",
-                    "fr": "(Optionnel) Choisissez le port qui sera redirigé"
-                },
-                "example": "5050",
-				"default": "none"
-            },
-			{
                 "name": "redirect_path",
                 "ask": {
-                    "en": "(Optional) Choose the path that will be redirected",
-                    "fr": "(Optionnel) Choisissez le chemin qui sera redirigé"
+                    "en": "Choose the path that will be redirected (URL, port...)",
+                    "fr": "Choisissez le chemin qui sera redirigé (URL, port, ...)"
                 },
-                "example": "/path",
-				"default": "none"
+                "example": "http://127.0.0.1:5050/app/",
+				"default": "http://127.0.0.1/"
             }
         ]
     }
