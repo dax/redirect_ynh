@@ -28,9 +28,7 @@ sudo yunohost app checkurl $domain$path -a $app \
 		fi
 
 	# Redirect Path
-		redirect_path=${redirect_path%/}
-		if [ "${redirect_path:LEN}" != "/" ]; then
-		  echo "Adding trailing slash"
+		if [ "${redirect_path: -1}" != "/" ]; then
 		  redirect_path=${redirect_path%/}
 		fi
 		sudo yunohost app setting $app redirect_path -v "$redirect_path"
