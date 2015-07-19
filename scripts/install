@@ -29,7 +29,7 @@ sudo yunohost app checkurl $domain$path -a $app \
 
 	# Redirect Path
 		if [ "${redirect_path: -1}" != "/" ]; then
-		  redirect_path=${redirect_path%/}
+		  redirect_path=${redirect_path}"/"
 		fi
 		sudo yunohost app setting $app redirect_path -v "$redirect_path"
 		sed -i "s@REDIRECT_PATH@$redirect_path@g" ../conf/nginx.conf
